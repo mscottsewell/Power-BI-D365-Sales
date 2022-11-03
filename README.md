@@ -7,8 +7,8 @@ These example reports are built to demonstrate using Power BI to report on a cus
 ## Skills
 
 1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
-2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report dev
-3.  Dataverse / Dynamics 365 sales entities
+2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report development 
+3.  Familiarity with Dataverse / Dynamics 365 sales entities
 
 ## Software:
 
