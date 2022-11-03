@@ -4,6 +4,8 @@ These example reports are built to demonstrate using Power BI to report on a cus
 - One example uses the TDS Endpoint to connect directly to Dataverse and is currently limited to 80MB per query
 - The other two examples use the Dataverse Synapse Link approach for scaling to significantly larger datasets
 
+<img src="https://user-images.githubusercontent.com/6276300/199823646-a6f9147a-3dbb-4f97-ad83-9d6610749f82.png" width=600 align=center>
+
 ## Skills
 
 1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
