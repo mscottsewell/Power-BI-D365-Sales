@@ -16,7 +16,7 @@ These example reports are built to demonstrate using Power BI to report on a cus
 ## Software:
 
 1.	Access to a Dynamics 365 environment with sales data (See below for entities in scope)
-2.	Current version of Power BI on your Desktop for editing
+2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)
 3.  If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
 4.	Optional: [Bravo - for updating the calendar or adding time intelligence measures](https://bravo.bi/)
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
