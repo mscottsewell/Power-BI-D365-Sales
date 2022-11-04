@@ -22,8 +22,10 @@ These example reports are built to demonstrate using Power BI to report on a cus
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
 ## Report Variations:
-
+Report using the ***Dataverse TDS Endpoint*** for the easiest setup
 - Contoso Sales - TDS - Opportunities.pbit
+
+Report using the ***Azure Synapse Data Link*** for greater scale
 - Contoso Sales - Synapse - Opportunities.pbit
 - Contoso Sales - Synapse - Opportunities with Product Lines.pbit
 
