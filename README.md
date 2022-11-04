@@ -1,7 +1,7 @@
 # Power BI ↔️ Dynamics 365 Sales report templates
 
 These example reports are built to demonstrate using Power BI to report on a customer's Opportunities in Dynamics 365 CE Sales. 
-- One example uses the TDS Endpoint to connect directly to Dataverse and is currently limited to 80MB per query
+- One example uses the TDS Endpoint to connect directly to Dataverse
 - The other two examples use the Dataverse Synapse Link approach for scaling to significantly larger datasets
 
 ![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
@@ -36,7 +36,7 @@ Report using the ***Azure Synapse Data Link*** for greater scale
 2.	Opportunities customers are Accounts - Not impossible to adapt to a different use case, but be aware that it's baked into a few assumptions in the report
 3.	Opportunities are owned by Users and owners have a manager for roll-up reporting
 4.	Opportunity accounts (customers) are assigned a Sales Territory for roll-up reporting
-6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) - The report does not auto-adjust to the viewers' timezone or daylight savings shifts the way Dynamics does
+6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) e.g. US Central TimeZone is "-5"  (Does not adjust for DST.) - The report does not auto-adjust to the viewers' timezone or daylight savings shifts the way Dynamics does - 
 7.	The “…Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
 
 
@@ -45,7 +45,7 @@ Report using the ***Azure Synapse Data Link*** for greater scale
 1.	TDS Endpoint needs to be enabled and you need read access to the following entities:
 
     Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams
-2.	Edit these three parameters in the report to meet your needs/environment:
+2.	Edit these three parameters in the report to meet your needs/environment - Depending on the quantity of opportunities in your environment, you may need to adjust the 'months of history' to avoid timeouts:
     - <img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=600 align=center>
        
 
