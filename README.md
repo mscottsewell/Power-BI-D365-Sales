@@ -4,7 +4,7 @@ These example reports are built to demonstrate using Power BI to report on a cus
 - One example uses the TDS Endpoint to connect directly to Dataverse and is currently limited to 80MB per query
 - The other two examples use the Dataverse Synapse Link approach for scaling to significantly larger datasets
 
-![Sales Report](https://user-images.githubusercontent.com/6276300/199829890-550b6bbc-8465-4069-8e07-586e65874460.gif)
+![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
 
 
 ## Skills
@@ -22,8 +22,10 @@ These example reports are built to demonstrate using Power BI to report on a cus
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
 ## Report Variations:
-
+Report using the ***Dataverse TDS Endpoint*** for the easiest setup
 - Contoso Sales - TDS - Opportunities.pbit
+
+Report using the ***Azure Synapse Data Link*** for greater scale
 - Contoso Sales - Synapse - Opportunities.pbit
 - Contoso Sales - Synapse - Opportunities with Product Lines.pbit
 
@@ -43,9 +45,10 @@ These example reports are built to demonstrate using Power BI to report on a cus
 1.	TDS Endpoint needs to be enabled and you need read access to the following entities:
 
     Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams
-2.	Edit these four parameters in the report to meet your needs/environment:
-    - <img src="https://user-images.githubusercontent.com/6276300/199821685-83d19441-56b9-46be-9549-eb1d8650c00d.png" width=600 align=center>
-    
+2.	Edit these three parameters in the report to meet your needs/environment:
+    - <img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=600 align=center>
+       
+
 
 ## Dataverse Azure Synapse Link for Synapse-based reports
 
@@ -58,3 +61,4 @@ These example reports are built to demonstrate using Power BI to report on a cus
     
 3.	Edit these three parameters in the report to meet your needs/environment:
     - <img src="https://user-images.githubusercontent.com/6276300/199808416-2ddf48be-67b5-49f3-889b-0214cd4d4b72.png" width=600 align=center>
+
