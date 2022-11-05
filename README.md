@@ -22,10 +22,10 @@ These example reports are built to demonstrate using Power BI to report on a cus
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
 ## Report Variations:
-Report using the ***Dataverse TDS Endpoint*** for the easiest setup
+Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest setup.
 - Contoso Sales - TDS - Opportunities.pbit
 
-Report using the ***Azure Synapse Data Link*** for greater scale
+If you have a ***Azure Synapse Data Link*** deployed, use these versions to report on much larger datasets. 
 - Contoso Sales - Synapse - Opportunities.pbit
 - Contoso Sales - Synapse - Opportunities with Product Lines.pbit
 
@@ -33,9 +33,10 @@ Report using the ***Azure Synapse Data Link*** for greater scale
 ## Report assumptions/requirements:
 
 1.	Custom fields and entities are entirely out of scope for the template, but nothing blocking a user from add custom fields to the existing queries/reports
-2.	Opportunities customers are Accounts - Not impossible to adapt to a different use case, but be aware that it's baked into a few assumptions in the report
-3.	Opportunities are owned by Users and owners have a manager for roll-up reporting
+2.	Opportunities customers are Accounts<br />You can adapt the report for a different use case, but be aware that the 'account is the customer' assumption is baked into a few assumptions in the report
+3.	Opportunities are owned by Users and users have a manager for roll-up reporting
 4.	Opportunity accounts (customers) are assigned a Sales Territory for roll-up reporting
+5.  Territories have a parent territory for grouping / roll-up
 6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) e.g. US Central TimeZone is "-5"  (Does not adjust for DST.) - The report does not auto-adjust to the viewers' timezone or daylight savings shifts the way Dynamics does - 
 7.	The “…Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
 
