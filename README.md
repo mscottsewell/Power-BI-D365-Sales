@@ -16,9 +16,9 @@ These example reports are built to demonstrate using Power BI to report on a cus
 ## Software:
 
 1.	Access to a Dynamics 365 environment with sales data (See below for entities in scope)
-2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)
+2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)<br />Note that if you see an alert telling you that the report is in a newer version, just continue on, there should be no incompatible/unreleased features in this report.<br /><img width="300" alt="Newer Version Error" src="https://user-images.githubusercontent.com/6276300/200124170-738a60eb-5922-4f27-aeb3-8d33d1935d18.png">
 3.  If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
-4.	Optional: [Bravo - for updating the calendar or adding time intelligence measures](https://bravo.bi/)
+4.	Optional: [Bravo - for updating the calendar or modifying/adding time intelligence measures](https://bravo.bi/)
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
 ## Report Variations:
@@ -42,23 +42,12 @@ Report using the ***Azure Synapse Data Link*** for greater scale
 
 ## Dataverse TDS Endpoint based reports
 
-1.	TDS Endpoint needs to be enabled and you need read access to the following entities:
-
-    Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams
-2.	Edit these three parameters in the report to meet your needs/environment - Depending on the quantity of opportunities in your environment, you may need to adjust the 'months of history' to avoid timeouts:
-    - <img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=600 align=center>
-       
-
+1.	TDS Endpoint needs to be enabled and you need read access to the following entities:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
+2.	Edit these three parameters in the report to meet your needs/environment - Depending on the quantity of opportunities in your environment, you may need to adjust the 'months of history' to avoid timeouts:<br /><img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=400 align=center>
 
 ## Dataverse Azure Synapse Link for Synapse-based reports
 
 1.	Synapse Link is operating, and you can connect to it with SSMS & Power BI. 
-2.	Synapse Link is set to export (using default: append = no) with at least the following tables:
-    
-    Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams
-
-    The “…Opportunities with Product Lines” report also needs: Opportunity Products and Products
-    
-3.	Edit these three parameters in the report to meet your needs/environment:
-    - <img src="https://user-images.githubusercontent.com/6276300/199808416-2ddf48be-67b5-49f3-889b-0214cd4d4b72.png" width=600 align=center>
+2.	Synapse Link is set to export (using default: append = no) with at least the following tables:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams* <br />The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
+3.	Edit these three parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/199808416-2ddf48be-67b5-49f3-889b-0214cd4d4b72.png" width=400 align=center>
 
