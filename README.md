@@ -48,7 +48,7 @@ If you have a ***Azure Synapse Data Link*** deployed, use these versions to repo
 
 ## Dataverse Azure Synapse Link for Synapse-based reports
 
-1.	Synapse Link is operating, and you can connect to it with SSMS & Power BI. 
+1.	[Azure Synapse Link](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake) is operating, and you can connect to it with SSMS & Power BI. 
 2.	Synapse Link is set to export (using default: append = no) with at least the following tables:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams* <br />The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
 3.	Edit these three parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/199808416-2ddf48be-67b5-49f3-889b-0214cd4d4b72.png" width=400 align=center>
 
