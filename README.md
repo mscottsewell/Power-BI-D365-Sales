@@ -1,6 +1,6 @@
-# Power BI ↔️ Dynamics 365 Sales report templates
+# Power BI ↔️ Dynamics 365 Sales Report templates (Beta)
 
-These example reports are built to demonstrate using Power BI to report on a customer's Opportunities in Dynamics 365 CE Sales. 
+These report templates are built to demonstrate using Power BI to report on Opportunities in Dynamics 365 CE Sales. 
 - One example uses the TDS Endpoint to connect directly to Dataverse
 - The other two examples use the Dataverse Synapse Link approach for scaling to significantly larger datasets
 
