@@ -6,9 +6,9 @@ These templates are intended to be idea generators and examples of Power BI feat
 
 The data model of the report follows best-practices from my documentation: [Power BI modeling guidance for Power Platform.](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) 
 
-
+## Quick Demo
 ![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
-
+*Note: if you're testing this in the desktop, remember to hold down the <ctrl> key when clicking on bookmarks, but not slicers. - Once published to the service, both bookmarks and slicers work with a single click.*
 
 ## Software:
 
