@@ -1,26 +1,28 @@
 # Power BI ❤️ Dynamics 365 Sales! <br /> Report Templates (Beta)
 
 These report templates are built to demonstrate using Power BI to report on Opportunities in Dynamics 365 CE Sales. 
-- One example uses the TDS Endpoint to connect directly to Dataverse
-- The other two examples use the Dataverse Synapse Link approach for scaling to significantly larger datasets
+
+These templates are intended to be idea generators and examples of Power BI features that you can 'steal' to make your own reports shine. Few organizations will find them complete enough to use without some modification/expansion.
+
+The data model of the report follows best-practices from my documentation: [Power BI modeling guidance for Power Platform.](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) 
+
 
 ![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
 
+
+## Software:
+
+1.	Access to a Dynamics 365 environment with sales data (See below for entities in scope)
+2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)<br />Note that if you see an alert telling you that the report can't be opened because it's is in a newer version, as long as you're on the latest released version you can continue opening the report, there should be no incompatible/unreleased features in this report.<br /><img width="200" alt="Newer Version Error" src="https://user-images.githubusercontent.com/6276300/200124170-738a60eb-5922-4f27-aeb3-8d33d1935d18.png">
+3.  If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
+4.	Optional: [Bravo - for updating the calendar or modifying/adding time intelligence measures](https://bravo.bi/)
+5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
 ## Skills
 
 1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
 2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report development 
 3.  Familiarity with Dataverse / Dynamics 365 sales entities
-
-## Software:
-
-1.	Access to a Dynamics 365 environment with sales data (See below for entities in scope)
-2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)<br />Note that if you see an alert telling you that the report is in a newer version, just continue on, there should be no incompatible/unreleased features in this report.<br /><img width="300" alt="Newer Version Error" src="https://user-images.githubusercontent.com/6276300/200124170-738a60eb-5922-4f27-aeb3-8d33d1935d18.png">
-3.  If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
-4.	Optional: [Bravo - for updating the calendar or modifying/adding time intelligence measures](https://bravo.bi/)
-5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
-
 
 # Report assumptions/requirements:
 
