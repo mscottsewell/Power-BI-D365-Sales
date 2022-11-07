@@ -32,7 +32,7 @@ The data model of the report follows best-practices from my documentation: [Powe
 4.	Opportunity accounts (customers) are assigned a Sales Territory for roll-up reporting
 5.  Territories have a parent territory for grouping / roll-up
 6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) e.g. US Central TimeZone is "-5"  (Does not adjust for DST.) - The report does not auto-adjust to the viewers' timezone or daylight savings shifts the way Dynamics does - 
-7.	The “…Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
+7.	The “Contoso Sales - Synapse - Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
 
 # Report Variations:
 
