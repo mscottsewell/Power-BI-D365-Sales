@@ -51,5 +51,9 @@ If you have an ***Azure Synapse Link*** deployed, use these versions to report o
 
 *Requirements*
 1.	[Azure Synapse Link](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake) is operating, and you can connect to it with SSMS & Power BI. 
-2.	Synapse Link is set to export (using default: append = no) with at least the following tables:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams* <br />The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
+2.	Synapse Link is set to export (using default: append = no) with at least the following tables:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams* [^note] <br />
+The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
 3.	Edit these four parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/200717333-6b8329cc-c7cf-4392-8d00-2269d0a0a77f.png" width=400 align=center>
+
+
+[^note]: To ensure the report doesn't encounter read-contention during refresh cycles, it queries the '_snapshot' version of the tables. Be aware that these tables/views are not created in Synapse if the corresponding table in Dataverse is completely empty. Ensure at least one record is in the source tables for each of the selected entities to trigger the sync to setup these snapshot views.  <br />
