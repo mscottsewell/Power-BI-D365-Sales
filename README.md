@@ -54,6 +54,9 @@ If you have an ***Azure Synapse Link*** deployed, use these versions to report o
 2.	Synapse Link is set to export (using default: append = no) with at least the following tables[^note]:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams*  <br />
 The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
 3.	Edit these four parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/200717333-6b8329cc-c7cf-4392-8d00-2269d0a0a77f.png" width=400 align=center>
-
+    - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone, so this adjustment is needed to help offset date drift due to user's timezone difference from GMT.
+    - *SynapseSQLEndPoint* - The server url/name for the Synapse Workspace SQL endpoint. Open the workspace and click on ***Manage*** - Under SQL Pools, click on ***Built-in*** to open the properties - copy the ***Workspace SQL endpoint*** to the _SynapseSQLEndPoint_ variable. 
+    - *SynapseLakeDatabase* - This is the lake database name in the Synapse Workspace. Open the make.PowerApps.com Portal and under ***Dataverse / Azure Synapse Link*** highlight the listed Synapse Link, then from the ribbon choose ***Details* to open the Azure resource details page. - Copy the ***Azure Synapse Analytics database*** name (Note: you only want the text displayed, and *not* the underlying url.)
+    
 
 [^note]: To ensure the report doesn't encounter read-contention during refresh cycles, it queries the '_snapshot' version of the tables. Be aware that these tables/views are not created in Synapse if the corresponding table in Dataverse is completely empty. Ensure at least one record is in the source tables for each of the selected entities to trigger the sync to setup these snapshot views.  <br />
