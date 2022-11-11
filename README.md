@@ -27,13 +27,14 @@ The data model of the report follows best-practices from my documentation: [Powe
 # Report assumptions/requirements:
 
 1.	Custom fields and entities are entirely out of scope for the template, but nothing blocking a user from add custom fields to the existing queries/reports
-2.	Opportunities customers are Accounts<br />You can adapt the report for a different use case, but be aware that the 'account is the customer' assumption is baked into a few assumptions in the report
-3.	Opportunities are owned by Users and users have a manager for roll-up reporting
-4.	Opportunity accounts (customers) are assigned a Sales Territory for roll-up reporting
-5.  Territories have a parent territory for grouping / roll-up
-6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) - e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone but displayed in a user's local time based on their user settings, so this adjustment is needed to help offset date drift due to user's timezone delta from GMT. 
-7.	The “Contoso Sales - Synapse - Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
-8.  All ***Open*** opportunities will be imported, but only opportunities that have ***closed*** within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*    
+2.	Opportunities owners (either users or ownership teams) have a manager for roll-up reporting
+3.	Opportunity customers (specifically accounts) are assigned a Sales Territory for roll-up reporting
+4.  Territories may have a parent territory for grouping / roll-up
+5.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) - e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone but displayed in a user's local time based on their user settings, so this adjustment is needed to help offset date drift due to user's timezone delta from GMT. 
+6.	The “Contoso Sales - Synapse - Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
+7.  All ***Open*** opportunities will be imported, but only opportunities that have ***closed*** within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles or timeouts, especially with large datasets using TDS. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*   
+8.  The report will initially ask for authentication and then ask you to approve running native database queryies. - Click 'Run' to approve running each of these read-only queryies.<br /><img src="https://user-images.githubusercontent.com/6276300/201372146-d3857d0a-2987-42da-b2e6-4bb7e46dc5c8.png" width=400 align=center>
+    
 
 # Report Variations:
 
@@ -43,7 +44,7 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 
 *Requirements*
 1.	TDS Endpoint needs to be enabled and you need read access to the following entities:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
-2.	Edit these three parameters in the report to meet your needs/environment - Depending on the quantity of opportunities in your environment, you may need to adjust the 'months of history' to avoid timeouts:<br /><img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=400 align=center>
+2.	Edit these three parameters in the report to meet your needs/environment<br /><img src="https://user-images.githubusercontent.com/6276300/201371158-64dbd1ca-6783-46cc-b573-8c8876e0cab5.png" width=400 align=center>
     - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *TDSEndPoint* - The server url/name for the Dynamics 365 environment. *(without the https:// prefix) *
     - *MonthsOfHistory* - Number of months of closed opportunites to import.
