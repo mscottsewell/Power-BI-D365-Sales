@@ -31,8 +31,9 @@ The data model of the report follows best-practices from my documentation: [Powe
 3.	Opportunities are owned by Users and users have a manager for roll-up reporting
 4.	Opportunity accounts (customers) are assigned a Sales Territory for roll-up reporting
 5.  Territories have a parent territory for grouping / roll-up
-6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) e.g. US Central TimeZone is "-5"  (Does not adjust for DST.) - The report does not auto-adjust to the viewers' timezone or daylight savings shifts the way Dynamics does - 
+6.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) - e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone but displayed in a user's local time based on their user settings, so this adjustment is needed to help offset date drift due to user's timezone delta from GMT. 
 7.	The “Contoso Sales - Synapse - Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
+8.  All ***Open*** opportunities will be imported, but only opportunities that have ***closed*** within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*    
 
 # Report Variations:
 
@@ -43,9 +44,9 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 *Requirements*
 1.	TDS Endpoint needs to be enabled and you need read access to the following entities:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
 2.	Edit these three parameters in the report to meet your needs/environment - Depending on the quantity of opportunities in your environment, you may need to adjust the 'months of history' to avoid timeouts:<br /><img src="https://user-images.githubusercontent.com/6276300/199859486-0adf0d07-6d75-4701-abca-bfaebf1ddf16.png" width=400 align=center>
-    - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone, so this adjustment is needed to help offset date drift due to user's timezone difference from GMT.
+    - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *TDSEndPoint* - The server url/name for the Dynamics 365 environment. *(without the https:// prefix) *
-    - *MonthsOfHistory* - All Open opportunities will be imported, but only opportunities that have 'closed' within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*
+    - *MonthsOfHistory* - Number of months of closed opportunites to import.
 
 ### Dataverse Azure Synapse Link for Synapse-based reports
 If you have an ***Azure Synapse Link*** deployed, use these versions to report on much larger datasets. 
@@ -57,9 +58,9 @@ If you have an ***Azure Synapse Link*** deployed, use these versions to report o
 2.	Synapse Link is set to export (using default: append = no) with at least the following tables[^note]:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams*  <br />
 The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
 3.	Edit these four parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/200717333-6b8329cc-c7cf-4392-8d00-2269d0a0a77f.png" width=400 align=center>
-    - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone, so this adjustment is needed to help offset date drift due to user's timezone difference from GMT.
+    - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *SynapseSQLEndPoint* - The server url/name for the Synapse Workspace SQL endpoint. Open the workspace and click on ***Manage*** - Under SQL Pools, click on ***Built-in*** to open the properties - copy the ***Workspace SQL endpoint*** to the _SynapseSQLEndPoint_ variable. 
     - *SynapseLakeDatabase* - This is the lake database name in the Synapse Workspace. Open the make.PowerApps.com Portal and under ***Dataverse / Azure Synapse Link*** highlight the listed Synapse Link, then from the ribbon choose ***Details* to open the Azure resource details page. - Copy the ***Azure Synapse Analytics database*** name (Note: you only want the text displayed, and *not* the underlying url.)
-    - *MonthsOfHistory* - All Open opportunities will be imported, but only opportunities that have 'closed' within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*
+    - *MonthsOfHistory* - Number of months of closed opportunites to import.
 
 [^note]: To ensure the report doesn't encounter read-contention during refresh cycles, it queries the '_snapshot' version of the tables. Be aware that these tables/views are not created in Synapse if the corresponding table in Dataverse is completely empty. Ensure at least one record is in the source tables for each of the selected entities to trigger the sync to setup these snapshot views.  <br />
