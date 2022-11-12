@@ -2,9 +2,9 @@
 
 These report templates are built to demonstrate using Power BI to report on Opportunities in Dynamics 365 CE Sales. 
 
-These templates are intended to be idea generators and examples of Power BI features that you can 'steal' to make your own reports shine. Few organizations will find them complete enough to use without some modification/expansion.
+These templates are intended to be easy to deploy examples of Dataverse Data Modeling for Power BI - and highlight some Power BI features that you can 'steal' to make your own reports shine. 
 
-The data model of the report follows best-practices from my documentation: [Power BI modeling guidance for Power Platform.](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) 
+The data model of the report follows best-practices from my documentation: [Power BI modeling guidance for Power Platform.](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) I would encourage you to use that document as a companion piece to understanding some of the approaches used in the design of this report.
 
 ## Quick Demo
 ![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
@@ -13,12 +13,12 @@ The data model of the report follows best-practices from my documentation: [Powe
 ## Software:
 
 1.	Access to a Dynamics 365 environment with sales data (See below for entities in scope)
-2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)<br />Note that if you see an alert telling you that the report can't be opened because it's is in a newer version, as long as you're on the latest released version you can continue opening the report, there should be no incompatible/unreleased features in this report.<br /><img width="200" alt="Newer Version Error" src="https://user-images.githubusercontent.com/6276300/200124170-738a60eb-5922-4f27-aeb3-8d33d1935d18.png">
-3.  If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
+2.	Current version of Power BI on your Desktop for editing (With "Field Parameters" enabled in Options/Preview.)[^1]:<br />
+3.  Only the free version of Power BI is needed to view and even publish to the service for your own use. If you'd like to share the reports with others, some version of Power BI Pro/Premium-per-user/Premium would be needed.
 4.	Optional: [Bravo - for updating the calendar or modifying/adding time intelligence measures](https://bravo.bi/)
 5.	Optional: [SSMS - SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms-19?view=sql-server-ver16)
 
-## Skills
+## Skills needed to Modify or Extend
 
 1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
 2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report development 
@@ -81,4 +81,5 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
     
+[^1]: Note that if you see an alert telling you that the report can't be opened because it's is in a newer version, as long as you're on the latest released version you can continue opening the report, there should be no incompatible/unreleased features in this report.<br /><img width="200" alt="Newer Version Error" src="https://user-images.githubusercontent.com/6276300/200124170-738a60eb-5922-4f27-aeb3-8d33d1935d18.png">
 [^note]: To ensure the report doesn't encounter read-contention during refresh cycles, it queries the '_snapshot' version of the tables. Be aware that these tables/views are not created in Synapse if the corresponding table in Dataverse is completely empty. Ensure at least one record is in the source tables for each of the selected entities to trigger the sync to setup these snapshot views.  <br />
