@@ -47,7 +47,7 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 - Contoso Sales - TDS - Opportunities.pbit
 
 *Requirements*
-1.	TDS Endpoint needs to be enabled and you need read access to the following entities:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
+1.	TDS Endpoint needs to be enabled and you need read access to the following entities: *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
 2.	Edit these three parameters in the report to meet your needs/environment<br /><img src="https://user-images.githubusercontent.com/6276300/201371158-64dbd1ca-6783-46cc-b573-8c8876e0cab5.png" width=400 align=center>
     - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *TDSEndPoint* - The server url/name for the Dynamics 365 environment. (without the **https://** prefix)
