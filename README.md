@@ -33,10 +33,10 @@ The data model of the report follows best-practices from my documentation: [Powe
 5.	The DatesTimes are adjusted from GMT based on a single parameter (number of Hours) - e.g. Central timezone in the US is GMT "-6" hours (Or -5 hours during Daylight Savings Time.) The datetimes in Dataverse are stored in GMT timezone but displayed in a user's local time based on their user settings, so this adjustment is needed to help offset date drift due to user's timezone delta from GMT. 
 6.	The “Contoso Sales - Synapse - Opportunities with Product Lines” report additionally assumes: An Opportunity’s estimated and actual values are only calculated as the sum of line-items
 7.  All ***Open*** opportunities will be imported, but only opportunities that have ***closed*** within the past 'X' number of months will be imported. Selecting a smaller number of months of history will avoid longer refresh cycles or timeouts, especially with large datasets using TDS. - *(It's helpful to include 1 more month than you plan to display. This gives the month-over-month calculations a baseline for the first month you display.)*   
-8.  The report will initially ask for authentication and then ask you to approve running native database queryies. - Click 'Run' to approve running each of these read-only queryies.<br /><img src="https://user-images.githubusercontent.com/6276300/201372146-d3857d0a-2987-42da-b2e6-4bb7e46dc5c8.png" width=400 align=center>
+8.  The report will initially ask for authentication and then ask you to approve running native database queries. - Click 'Run' to approve running each of these read-only queries.<br /><img src="https://user-images.githubusercontent.com/6276300/201372146-d3857d0a-2987-42da-b2e6-4bb7e46dc5c8.png" width=400 align=center>
     
 # Data Model
-These reports follow a traditional Star Schema with the Opportunity serving as the Fact table and the Campaign, Owner (Combination of Users and Teams), and Customer (combination of Accounts and Contacts) with an additional related dimension of 'Territory.'  Measures are organized within the 'Sales Measures' table.<br /> You'll notice that there are several field parameters and a what-if paramter in the model used for added flexibility in the reports. These, along with many of the internal-use fields have been marked as 'hidden.' The user is presented a clean pallete of the fields they are most likely to select as filters or use when creating their own reports in Power BI or Excel.<br />
+These reports follow a traditional Star Schema with the Opportunity serving as the Fact table and the Campaign, Owner (Combination of Users and Teams), and Customer (combination of Accounts and Contacts) with an additional related dimension of 'Territory.'  Measures are organized within the 'Sales Measures' table.<br /> You'll notice that there are several field parameters and a what-if parameter in the model used for added flexibility in the reports. These, along with many of the internal-use fields have been marked as 'hidden.' The user is presented a clean list of the fields they are most likely to select as filters or use when creating their own reports in Power BI or Excel.<br />
 <img src="https://user-images.githubusercontent.com/6276300/201492894-8b4086b6-8329-43ce-9d90-a7137cad1e95.png" width=600 align=center>
 <br />
 
@@ -51,7 +51,7 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 2.	Edit these three parameters in the report to meet your needs/environment<br /><img src="https://user-images.githubusercontent.com/6276300/201371158-64dbd1ca-6783-46cc-b573-8c8876e0cab5.png" width=400 align=center>
     - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *TDSEndPoint* - The server url/name for the Dynamics 365 environment. (without the **https://** prefix)
-    - *MonthsOfHistory* - Number of months of closed opportunites to import.
+    - *MonthsOfHistory* - Number of months of closed opportunities to import.
 
 ### Dataverse Azure Synapse Link for Synapse-based reports
 If you have an ***Azure Synapse Link*** deployed, use these versions to report on much larger datasets. 
@@ -60,13 +60,13 @@ If you have an ***Azure Synapse Link*** deployed, use these versions to report o
 
 *Requirements*
 1.	[Azure Synapse Link](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake) is operating, and you can connect to it with SSMS & Power BI. 
-2.	Synapse Link is set to export (using default: append = no) with at least the following tables[^note]:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users;Teams*  <br />
+2.	Synapse Link is set to export (using default: append = no) with at least the following tables[^note]:<br /> *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams*  <br />
 The “…Opportunities with Product Lines” report also needs: *Opportunity Products* and *Products*
 3.	Edit these four parameters in the report to meet your needs/environment:<br /><img src="https://user-images.githubusercontent.com/6276300/200717333-6b8329cc-c7cf-4392-8d00-2269d0a0a77f.png" width=400 align=center>
     - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *SynapseSQLEndPoint* - The server url/name for the Synapse Workspace SQL endpoint. Open the workspace and click on ***Manage*** - Under SQL Pools, click on ***Built-in*** to open the properties - copy the ***Workspace SQL endpoint*** to the _SynapseSQLEndPoint_ variable. 
     - *SynapseLakeDatabase* - This is the lake database name in the Synapse Workspace. Open the make.PowerApps.com Portal and under ***Dataverse / Azure Synapse Link*** highlight the listed Synapse Link, then from the ribbon choose ***Details*** to open the Azure resource details page. - Copy the ***Azure Synapse Analytics database*** name (Note: you only want the text displayed, and *not* the underlying url.)
-    - *MonthsOfHistory* - Number of months of closed opportunites to import.
+    - *MonthsOfHistory* - Number of months of closed opportunities to import.
 
 ## Legal Notices
 
