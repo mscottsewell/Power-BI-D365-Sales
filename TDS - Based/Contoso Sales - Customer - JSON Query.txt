@@ -1,0 +1,1 @@
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Customer\",\"column\":\"customerid\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "accountid"}}
