@@ -6,7 +6,6 @@ These templates are intended to be easy to deploy examples of Dataverse Data Mod
 
 The data model of the report follows best-practices from my documentation: [Power BI modeling guidance for Power Platform.](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) I would encourage you to use that document as a companion piece to understanding some of the approaches used in the design of this report.
 <br />
-<br />
 
 ## Quick Demo
 ![Sales Report](https://user-images.githubusercontent.com/6276300/199860167-026229c5-8a73-4cad-907c-763dfc49eeef.gif)
