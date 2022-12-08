@@ -87,6 +87,7 @@ The “Contoso Sales - with Product Lines.pbit” report also needs: *Opportunit
     - *SynapseSQLEndPoint* - The server url/name for the Synapse Workspace SQL endpoint. Open the workspace and click on ***Manage*** - Under SQL Pools, click on ***Built-in*** to open the properties - copy the ***Workspace SQL endpoint*** to the _SynapseSQLEndPoint_ variable. 
     - *SynapseLakeDatabase* - This is the lake database name in the Synapse Workspace. Open the make.PowerApps.com Portal and under ***Dataverse / Azure Synapse Link*** highlight the listed Synapse Link, then from the ribbon choose ***Details*** to open the Azure resource details page. - Copy the ***Azure Synapse Analytics database*** name (Note: you only want the text displayed, and *not* the underlying url.)
     - *MonthsOfHistory* - Number of months of closed opportunities to import.
+    - *EnvironmentURL* - The Dataverse Environment URL (without the https://) such as:  myenvironment.crm.dynamics.com - (This is used to construct the drill-through to records hyperlink.)
 <br />
 
 # Legal Notices
