@@ -66,7 +66,7 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 2.	Edit these three parameters in the report to meet your needs/environment<br /><img src="https://user-images.githubusercontent.com/6276300/201371158-64dbd1ca-6783-46cc-b573-8c8876e0cab5.png" width=400 align=center>
     - *GMTOffset* - set this to the difference (in hours) from GMT for the report datetime adjustments. 
     - *TDSEndPoint* - The server url/name for the Dynamics 365 environment. (without the **https://** prefix)
-    - *MonthsOfHistory* - Number of months of closed opportunities to import. (For TDS-Based reports, start with 13 months and test whether your organization's volume exceeds the TDS query limits or not - you can raise lower this as needed to help control the volume/speed of the report refresh cycle.)<br /><br />
+    - *MonthsOfHistory* - Number of months of closed opportunities to import. (For TDS-Based reports, start with 13 months and test whether the number of opportunities that includes results in a TDS query timeout or not. - You can raise or lower this parameter as needed.)<br /><br />
 3.  The *Contoso Sales - Customer* report is designed to be embedded in the Account Form and be filtered to the current record. When adding it to the form, use a JSON query (see the file "Contoso Sales - Customer - JSON Query.txt") to pass the GUID of the current record to the report. 
 <br />
 <br />
