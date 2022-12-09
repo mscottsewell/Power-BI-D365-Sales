@@ -23,13 +23,6 @@ The data model of the report follows best-practices from my documentation: [Powe
 <br />
 <br />
 
-## Skills needed to Modify or Extend
-
-1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
-2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report development 
-3.  Familiarity with Dataverse / Dynamics 365 sales entities
-<br />
-<br />
 
 # Report assumptions/requirements:
 
@@ -61,6 +54,10 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 - TDS - Based\Contoso Sales.pbit
 - TDS - Based\Contoso Sales - Customer.pbit *-Example of Direct Query*
 
+_Additionally, There are two solutions that allow you to load this into a Dynamics 365 Sales org in minutes. - Neither solution modifies existing data,schema,forms or views - but adds a single view to the account record. The managed version also allows you uninstall all components with a single click._
+- TDS - Based\ContosoSalesDemo_####.zip
+- TDS - Based\ContosoSalesDemo_####_managed.zip
+
 ***Requirements***
 1.	TDS Endpoint needs to be enabled and you need read access to the following entities: *Territories; Accounts; Contacts; Opportunities; Campaigns; System Users; Teams* 
 2.	Edit these three parameters in the report to meet your needs/environment<br /><img src="https://user-images.githubusercontent.com/6276300/201371158-64dbd1ca-6783-46cc-b573-8c8876e0cab5.png" width=400 align=center>
@@ -89,6 +86,15 @@ The “Contoso Sales - with Product Lines.pbit” report also needs: *Opportunit
     - *SynapseLakeDatabase* - This is the lake database name in the Synapse Workspace. Open the make.PowerApps.com Portal and under ***Dataverse / Azure Synapse Link*** highlight the listed Synapse Link, then from the ribbon choose ***Details*** to open the Azure resource details page. - Copy the ***Azure Synapse Analytics database*** name (Note: you only want the text displayed, and *not* the underlying url.)
     - *MonthsOfHistory* - Number of months of closed opportunities to import.
     - *EnvironmentURL* - The Dataverse Environment URL (without the https://) such as:  myenvironment.crm.dynamics.com - (This is used to construct the drill-through to records hyperlink.)
+<br />
+
+
+# Skills needed to Modify or Extend
+
+1.	T-SQL – (Nothing deeper than Select/Join/Case/IsNull is needed)
+2.	Power Query / Basic DAX / Power BI Data Modeling / Power BI Report development 
+3.  Familiarity with Dataverse / Dynamics 365 sales entities
+<br />
 <br />
 
 # Legal Notices
