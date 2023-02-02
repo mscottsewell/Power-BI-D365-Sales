@@ -54,7 +54,7 @@ Try out the ***Dataverse TDS Endpoint*** version of the report for the easiest s
 - TDS - Based\Contoso Sales.pbit
 - TDS - Based\Contoso Sales - Customer.pbit *-Example of Direct Query*
 
-_Additionally, There are two solutions that allow you to load this into a Dynamics 365 Sales org in minutes. - Neither solution modifies existing data,schema,forms or views - but adds a single view to the account record. The managed version also allows you uninstall all components with a single click._
+_Additionally, There are two solutions that allow you to load this into a Dynamics 365 Sales org in minutes. - Neither solution modifies existing data,schema,forms or views - but adds an app with all relevant entities for ease of exploration/demo. The managed version also allows you uninstall all components with a single click._
 - TDS - Based\ContosoSalesDemo_####.zip
 - TDS - Based\ContosoSalesDemo_####_managed.zip
 
