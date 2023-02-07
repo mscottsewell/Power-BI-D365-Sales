@@ -11,3 +11,4 @@ For Customer(Contact) form
 For SystemUser Form
 
 {"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Owner\",\"column\":\"OwnerID\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "systemuserid"}}
+ 
