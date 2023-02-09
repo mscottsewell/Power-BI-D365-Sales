@@ -1,4 +1,4 @@
-# Power BI ❤️ Dynamics 365 Sales! <br /> Report Templates (Beta)
+# Power BI ❤️ Dynamics 365 Sales! <br /> Report Templates and ALM Solution Examples
 
 These report templates are built to demonstrate using Power BI to report on Opportunities in Dynamics 365 CE Sales. 
 
