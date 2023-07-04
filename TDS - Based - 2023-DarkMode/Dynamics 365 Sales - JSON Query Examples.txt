@@ -1,0 +1,21 @@
+For Customer(Account) form
+
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Customers\",\"column\":\"customerid\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "accountid"}}
+
+
+For Campaign Form
+
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Campaigns\",\"column\":\"campaignid\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "campaignid"}}
+
+
+For Customer(Contact) form
+
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Customers\",\"column\":\"customerid\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "contactid"}}
+
+
+For SystemUser Form
+
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Owners\",\"column\":\"OwnerID\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "systemuserid"}}
+ 
+
+
