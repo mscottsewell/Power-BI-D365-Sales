@@ -1,5 +1,13 @@
 /*
-Before running this script, be sure that the following tables/shortcuts are already in the lakehouse:
+
+This script creates the following four views in the lakehouse:
+- Campaigns - for OOB Campaigns associated with Opportunities
+- Customers - for OOB Accounts and Contacts associated with Opportunities
+- Opportunities
+- Owners - for OOB Teams and Users associated with Opportunities
+
+
+Before running this script, be sure that the following Dataverse shortcuts are already in the lakehouse:
 - account
 - contact
 - opportunity
@@ -8,7 +16,14 @@ Before running this script, be sure that the following tables/shortcuts are alre
 - territory
 - stringmap
 - campaign
+
+- This model also assumes you're using the Dynamics 365 Dynamics 365 Sales Premium or Dynamics 365 Sales Enterprise, 
+- both of which which includes the "territory" entity. 
+- If you're using a different license, you'll need to replace the "territory" entity with the "salesterritory" 
+- choice value in the "Customers" view.
+
 */
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -16,6 +31,11 @@ GO
 --
 -- Campaign View
 --
+IF EXISTS(SELECT 'view exists' FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_NAME = N'Campaigns'AND TABLE_SCHEMA = 'dbo')
+BEGIN
+    DROP VIEW [dbo].[Campaigns]
+END
+GO
 CREATE VIEW [dbo].[Campaigns]
 AS
 SELECT  [Base].[campaignid]
@@ -36,20 +56,16 @@ SELECT  [Base].[campaignid]
     WHERE
         [Base].statecode = 0
         AND [Base].IsDelete IS NULL
-
-UNION ALL
-
-SELECT  '00000000-0000-0000-0000-000000000000'
-      , 'None'
-      , 'Active'
-      , 'None'
 GO
 --
 -- Customer View
+-- Because the Opportunity entity has "Potential customer" as a customer lookup to both the account and contact entities,
+-- the Customers view will be a union of the two entities, and ultimately a single dimension in the semantic layer.
 --
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
+IF EXISTS(SELECT 'view exists' FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_NAME = N'Customers'AND TABLE_SCHEMA = 'dbo')
+BEGIN
+    DROP VIEW [dbo].[Customers]
+END
 GO
 CREATE VIEW [dbo].[Customers]
 AS
@@ -123,6 +139,11 @@ GO
 --
 -- Opportunity View
 --
+IF EXISTS(SELECT 'view exists' FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_NAME = N'Opportunities'AND TABLE_SCHEMA = 'dbo')
+BEGIN
+    DROP VIEW [dbo].[Opportunities]
+END
+GO
 CREATE VIEW [dbo].[Opportunities]
 AS
 SELECT  [Base].opportunityid
@@ -180,7 +201,14 @@ SET QUOTED_IDENTIFIER ON
 GO
 --
 -- Owner View
+-- Because the Opportunity entity's "Owner" can lookup to either a team or a user,
+-- the Owners view will be a union of those two entities, and ultimately a single dimension in the semantic layer.
 --
+IF EXISTS(SELECT 'view exists' FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_NAME = N'Owners'AND TABLE_SCHEMA = 'dbo')
+BEGIN
+    DROP VIEW [dbo].[Owners]
+END
+GO
 CREATE VIEW [dbo].[Owners]
 AS
 SELECT  [Base].[teamid] ownerid
