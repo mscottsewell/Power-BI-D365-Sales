@@ -100,7 +100,14 @@ SELECT  [Base].accountid customerid
         AND account_businesstypecode.attributevalue = [Base].businesstypecode
     WHERE
         [Base].IsDelete IS NULL
-
+        AND EXISTS
+        (
+            SELECT  *
+                FROM [dbo].[opportunity] AS O
+                WHERE
+                    O.customerid = Base.accountid
+                    and O.customerid_entitytype = 1
+                    AND O.IsDelete IS NULL )     
 UNION ALL
 
 SELECT  [Base].contactid customerid
@@ -131,6 +138,14 @@ SELECT  [Base].contactid customerid
         AND account_industrycode.attributevalue = [Parent].industrycode
     WHERE
         [Base].IsDelete IS NULL
+        AND EXISTS
+        (
+            SELECT  *
+                FROM [dbo].[opportunity] AS O
+                WHERE
+                    O.customerid = Base.contactid
+                    and O.customerid_entitytype = 2
+                    AND O.IsDelete IS NULL )        
 GO
 SET ANSI_NULLS ON
 GO
