@@ -76,7 +76,6 @@ SELECT  [Base].accountid customerid
       , [Base].address1_city [City]
       , [Base].address1_stateorprovince [State or Province]
       , [Base].address1_country [Country]
-      , [Base].ownerid ownerid
       , [Base].owneridname [Customer Owner]
       , ISNULL(account_industrycode.value,'N/A') [Industry]
       , [T].name AS [Territory]
@@ -117,7 +116,6 @@ SELECT  [Base].contactid customerid
       , [Base].address1_city
       , [Base].address1_stateorprovince
       , [Base].address1_country
-      , [Parent].ownerid
       , [Parent].owneridname
       , ISNULL(account_industrycode.value,'N/A') industrycodename
       , [T].name AS [Territory]
