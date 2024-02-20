@@ -106,7 +106,7 @@ SELECT  [Base].accountid customerid
                 FROM [dbo].[opportunity] AS O
                 WHERE
                     O.customerid = Base.accountid
-                    and O.customerid_entitytype = 1
+                    and O.customerid_entitytype = 'account'
                     AND O.IsDelete IS NULL )     
 UNION ALL
 
@@ -144,7 +144,7 @@ SELECT  [Base].contactid customerid
                 FROM [dbo].[opportunity] AS O
                 WHERE
                     O.customerid = Base.contactid
-                    and O.customerid_entitytype = 2
+                    and O.customerid_entitytype = 'contact'
                     AND O.IsDelete IS NULL )        
 GO
 SET ANSI_NULLS ON
