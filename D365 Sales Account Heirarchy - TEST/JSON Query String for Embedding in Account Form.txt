@@ -1,0 +1,1 @@
+{"Filter": "[{\"$schema\":\"basic\",\"target\":{\"table\":\"Customer Hierarchy Filter\",\"column\":\"ParentId\"},\"operator\":\"In\",\"values\":[$a],\"filterType\":1}]", "Alias": {"$a": "accountid"}}
